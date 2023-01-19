@@ -4,15 +4,27 @@ from matplotlib import pyplot as plt
 
 def mostrar():
     df = pd.read_csv('df_covid19_countries2.csv')
-    df2 = df[['location', 'total_cases', 'date']]
 
-    print(df2)
+    pais = df['location'].unique()
+    paises = pais.head(10)
+    fechas = pd.Series(pd.date_range("2020-02-24", "2020-12-31"))
+
+    imprimir = df.groupby(['location', 'date'])['total_cases']
+
+    columnas = df[['location', 'total_cases', 'date']].head(10)
+
+    print(imprimir)
+    print("----------------")
+    print(columnas)
+    print("----------------")
+    print(paises)
 
     """""
-
+    ('location', 'date')('total_cases')
         df = pd.read_csv('df_covid19_countries2.csv')
     print(df.loc[df['location', 'date'] == 'Afghanistan'])
 
+        df2 = df[['location', 'total_cases', 'date']]
     df = pd.read_csv('df_covid19_countries2.csv', usecols=['location'])
     print(df.head(2))
     print("---------------------------")
