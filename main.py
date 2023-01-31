@@ -4,4 +4,4 @@ import exB
 """"
 print(fun1.mostrar())
 """
-print(exB.func4())
+print(exB.func1())
